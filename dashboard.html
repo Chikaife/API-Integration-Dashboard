@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Integration Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js" defer></script>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Analytics Dashboard</h1>
+            <p>Real-time insights from integrated APIs</p>
+        </header>
+        
+        <div class="filters">
+            <select id="timeframe">
+                <option value="7days">Last 7 Days</option>
+                <option value="30days">Last 30 Days</option>
+                <option value="90days">Last 90 Days</option>
+            </select>
+            
+            <select id="source">
+                <option value="all">All Sources</option>
+                <option value="api1">API Source 1</option>
+                <option value="api2">API Source 2</option>
+                <option value="api3">API Source 3</option>
+            </select>
+            
+            <input type="date" id="datefilter">
+            
+            <button onclick="applyFilters()">Apply Filters</button>
+            <button onclick="resetFilters()">Reset</button>
+        </div>
+        
+        <div class="summary-cards">
+            <div class="card">
+                <div class="card-label">Total Requests</div>
+                <div class="card-value" id="totalRequests">24,587</div>
+                <div class="card-change">↑ 12.5% from last period</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-label">Success Rate</div>
+                <div class="card-value" id="successRate">98.7%</div>
+                <div class="card-change">↑ 2.3% improvement</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-label">Avg Response Time</div>
+                <div class="card-value" id="responseTime">245ms</div>
+                <div class="card-change negative">↓ 8.1% slower</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-label">Active Users</div>
+                <div class="card-value" id="activeUsers">3,421</div>
+                <div class="card-change">↑ 18% increase</div>
+            </div>
+        </div>
+        
+        <div class="charts-container">
+            <div class="chart-box">
+                <h3>Request Volume Trend</h3>
+                <canvas id="trendChart"></canvas>
+            </div>
+            
+            <div class="chart-box">
+                <h3>API Source Distribution</h3>
+                <canvas id="sourceChart"></canvas>
+            </div>
+            
+            <div class="chart-box full-width">
+                <h3>Response Time by Endpoint</h3>
+                <canvas id="endpointChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+   
+</body>
+</html>
